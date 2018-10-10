@@ -10,11 +10,11 @@
 #include <utility>
 #include <vector>
 
-#include <adasworks/sx/array_view.h>
-#include <adasworks/sx/log.h>
-#include <adasworks/sx/maybe.h>
-#include <adasworks/sx/string_par.h>
-#include <adasworks/sx/stringf.h>
+#include <nosx/array_view.h>
+#include <nosx/log.h>
+#include <nosx/maybe.h>
+#include <nosx/string_par.h>
+#include <nosx/stringf.h>
 
 namespace cmakex {
 using std::exception;

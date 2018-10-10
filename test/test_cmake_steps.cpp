@@ -2,9 +2,9 @@
 #include <cstdlib>
 #include <string>
 
-#include <adasworks/sx/check.h>
-#include <adasworks/sx/log.h>
-#include <adasworks/sx/stringf.h>
+#include <nosx/check.h>
+#include <nosx/log.h>
+#include <nosx/stringf.h>
 
 #include "exec_process.h"
 #include "filesystem.h"
@@ -13,7 +13,7 @@
 using std::string;
 namespace fs = filesystem;
 using std::vector;
-using adasworks::sx::stringf;
+using nosx::stringf;
 
 void dump_oem(const cmakex::OutErrMessages& oem)
 {

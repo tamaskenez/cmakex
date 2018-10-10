@@ -6,12 +6,12 @@
 #include <Poco/SHA1Engine.h>
 #include <nowide/cstdio.hpp>
 
-#include <adasworks/sx/check.h>
+#include <nosx/check.h>
 #include "filesystem.h"
 
 namespace cmakex {
 
-using adasworks::sx::vstringf;
+using nosx::vstringf;
 namespace fs = filesystem;
 
 bool is_one_of(string_par x, initializer_list<const char*> y)

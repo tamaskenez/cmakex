@@ -7,9 +7,9 @@
 #include <set>
 #include <vector>
 
-#include <adasworks/sx/check.h>
-#include <adasworks/sx/config.h>
-#include <adasworks/sx/log.h>
+#include <nosx/check.h>
+#include <nosx/config.h>
+#include <nosx/log.h>
 
 #include "using-decls.h"
 

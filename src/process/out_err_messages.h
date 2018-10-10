@@ -7,13 +7,13 @@
 #include <deque>
 #include <functional>
 
-#include <adasworks/sx/mutex.h>
+#include <nosx/mutex.h>
 
 #include "exec_process.h"
 
 namespace cmakex {
 
-using adasworks::sx::atomic_flag_mutex;
+using nosx::atomic_flag_mutex;
 using std::move;
 
 struct out_err_message_base_t

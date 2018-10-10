@@ -12,10 +12,10 @@
 #include <yaml-cpp/yaml.h>
 #include <nowide/cstdlib.hpp>
 
-#include <adasworks/sx/check.h>
-#include <adasworks/sx/log.h>
-#include <adasworks/sx/string_par.h>
-#include <adasworks/sx/stringf.h>
+#include <nosx/check.h>
+#include <nosx/log.h>
+#include <nosx/string_par.h>
+#include <nosx/stringf.h>
 
 #include "filesystem.h"
 #include "misc_utils.h"

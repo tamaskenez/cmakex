@@ -7,7 +7,7 @@
 
 #include <Poco/Util/Application.h>
 
-#include <adasworks/sx/check.h>
+#include <nosx/check.h>
 
 #include "cmakex_utils.h"
 #include "filesystem.h"

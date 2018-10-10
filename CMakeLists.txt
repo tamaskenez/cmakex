@@ -19,7 +19,7 @@ if(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
         )
 elseif(CMAKE_COMPILER_IS_GNUCXX)
     add_compile_options(-Wall -Wextra -Wnon-virtual-dtor -pedantic
-        -Wunused -Woverloaded-virtual 
+        -Wunused -Woverloaded-virtual
         ${common_gcc_clang})
 elseif(MSVC)
     add_compile_options(/W4 /W44640 /w14242 /w14254 /w14263 /w14265 /w14287
@@ -63,7 +63,7 @@ add_definitions(
 
 cmake_print_variables(CMAKEX_VERSION_MMP CMAKEX_VERSION_WITH_META)
 
-find_package(aw-sx REQUIRED)
+# find_package(aw-sx REQUIRED)
 find_package(yaml-cpp REQUIRED)
 find_package(nowide REQUIRED)
 find_package(Poco REQUIRED Foundation Util)
@@ -75,4 +75,3 @@ endif()
 
 add_subdirectory(src)
 add_subdirectory(test)
-

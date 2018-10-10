@@ -40,7 +40,7 @@ function build_dep {
 
 opts="$common_opts -DCMAKE_INSTALL_PREFIX=$deps_install -DBUILD_SHARED_LIBS=0"\
 " -DENABLE_XML=1 -DENABLE_JSON=1 -DENABLE_MONGODB=0 -DENABLE_UTIL=1"\
-" -DENABLE_NET=0 -DENABLE_NETSSL=0 -DENABLE_NETSSL_WIN=0 -DENABLE_CRYPTO=0"\
+" -DENABLE_NET=1 -DENABLE_NETSSL=0 -DENABLE_NETSSL_WIN=0 -DENABLE_CRYPTO=0"\
 " -DENABLE_DATA=0 -DENABLE_DATA_SQLITE=0 -DENABLE_DATA_MYSQL=0"\
 " -DENABLE_DATA_ODBC=0 -DENABLE_SEVENZIP=0 -DENABLE_ZIP=0"\
 " -DENABLE_PAGECOMPILER=0 -DENABLE_PAGECOMPILER_FILE2PAGE=0 -DPOCO_STATIC=1"\
@@ -54,13 +54,13 @@ fi
 
 export MAKEFLAGS=-j8
 
-build_dep aw-sx
+# build_dep aw-sx
 build_dep yaml-cpp
 build_dep nowide
 build_dep Poco
 build_dep cereal
 
-opts="$common_opts -DCMAKE_PREFIX_PATH=$deps_install -DCMAKE_INSTALL_PREFIX=$PWD/o" 
+opts="$common_opts -DCMAKE_PREFIX_PATH=$deps_install -DCMAKE_INSTALL_PREFIX=$PWD/o"
 src=.
 build=b
 

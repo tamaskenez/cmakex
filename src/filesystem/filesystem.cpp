@@ -9,10 +9,10 @@
 #include <Poco/File.h>
 #include <Poco/Path.h>
 
-#include <adasworks/sx/check.h>
-#include <adasworks/sx/log.h>
-#include <adasworks/sx/string_par.h>
-#include <adasworks/sx/stringf.h>
+#include <nosx/check.h>
+#include <nosx/log.h>
+#include <nosx/string_par.h>
+#include <nosx/stringf.h>
 
 #include <nowide/convert.hpp>
 
@@ -34,8 +34,8 @@
 
 namespace filesystem {
 
-using adasworks::sx::stringf;
-using adasworks::sx::string_par;
+using nosx::stringf;
+using nosx::string_par;
 using std::string;
 using std::exception;
 

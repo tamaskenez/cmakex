@@ -4,8 +4,8 @@
 
 #include <nowide/cstdio.hpp>
 
-#include <adasworks/sx/check.h>
-#include <adasworks/sx/mutex.h>
+#include <nosx/check.h>
+#include <nosx/mutex.h>
 
 #include "filesystem.h"
 #include "misc_utils.h"
@@ -13,7 +13,7 @@
 #include "cmakex_utils.h"
 
 namespace cmakex {
-using adasworks::sx::atomic_flag_mutex;
+using nosx::atomic_flag_mutex;
 using lock_guard = std::lock_guard<atomic_flag_mutex>;
 namespace fs = filesystem;
 

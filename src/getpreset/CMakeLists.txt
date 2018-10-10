@@ -13,7 +13,7 @@ foreach(t getpreset test_getpreset libgetpreset)
             DEBUG_POSTFIX _d)
 
         target_link_libraries(${t}
-            PUBLIC ::aw-sx
+            PUBLIC nosx
             PRIVATE yaml-cpp filesystem nowide::nowide-static common)
     endif()
 endforeach()
@@ -25,4 +25,3 @@ target_include_directories(libgetpreset PUBLIC
 target_compile_definitions(libgetpreset PRIVATE LIBGETPRESET)
 
 install(TARGETS getpreset DESTINATION bin)
-

@@ -17,7 +17,7 @@ add_executable(cmakex
 )
 
 target_link_libraries(cmakex PRIVATE
-    ::aw-sx nowide::nowide-static filesystem
+    nosx nowide::nowide-static filesystem
     Poco::Foundation Poco::Util
     cereal
     process

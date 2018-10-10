@@ -5,10 +5,10 @@
 #include <tuple>
 #include <vector>
 
-#include <adasworks/sx/string_par.h>
+#include <nosx/string_par.h>
 
 namespace libgetpreset {
-using adasworks::sx::string_par;
+using nosx::string_par;
 // path_name can be preset-name (CMAKEX_PRESET_FILE env var contains the file)
 // or a string of the for path/preset-name
 // Returns

@@ -3,15 +3,15 @@
 
 #include <functional>
 
-#include <adasworks/sx/array_view.h>
-#include <adasworks/sx/mutex.h>
-#include <adasworks/sx/string_par.h>
+#include <nosx/array_view.h>
+#include <nosx/mutex.h>
+#include <nosx/string_par.h>
 
 namespace cmakex {
 
-using adasworks::sx::atomic_flag_mutex;
-using adasworks::sx::array_view;
-using adasworks::sx::string_par;
+using nosx::atomic_flag_mutex;
+using nosx::array_view;
+using nosx::string_par;
 using std::vector;
 using std::string;
 

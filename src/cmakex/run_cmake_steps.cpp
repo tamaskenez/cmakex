@@ -1,7 +1,7 @@
 #include "run_cmake_steps.h"
 
-#include <adasworks/sx/check.h>
-#include <adasworks/sx/format.h>
+#include <nosx/check.h>
+#include <nosx/format.h>
 
 #include "filesystem.h"
 

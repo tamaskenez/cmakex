@@ -4,7 +4,7 @@
 #include <cstdarg>
 #include <cstdio>
 
-#include <adasworks/sx/config.h>
+#include <nosx/config.h>
 #include "using-decls.h"
 
 namespace cmakex {

@@ -2,7 +2,7 @@
 
 #include <Poco/DirectoryIterator.h>
 #include <Poco/SHA1Engine.h>
-#include <adasworks/sx/algorithm.h>
+#include <nosx/algorithm.h>
 
 #include "cereal_utils.h"
 #include "cmakex_utils.h"

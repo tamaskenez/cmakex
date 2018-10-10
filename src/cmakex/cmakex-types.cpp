@@ -2,7 +2,7 @@
 
 #include <cstring>
 
-#include <adasworks/sx/preproc.h>
+#include <nosx/preproc.h>
 
 #include "misc_utils.h"
 

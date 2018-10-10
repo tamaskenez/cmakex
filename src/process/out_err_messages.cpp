@@ -7,8 +7,8 @@
 #include <Poco/Pipe.h>
 #include <Poco/Process.h>
 
-#include <adasworks/sx/check.h>
-#include <adasworks/sx/log.h>
+#include <nosx/check.h>
+#include <nosx/log.h>
 
 namespace cmakex {
 

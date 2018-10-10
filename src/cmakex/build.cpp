@@ -1,7 +1,7 @@
 #include "build.h"
 
-#include <adasworks/sx/algorithm.h>
-#include <adasworks/sx/check.h>
+#include <nosx/algorithm.h>
+#include <nosx/check.h>
 
 #include <Poco/DirectoryIterator.h>
 #include <Poco/Glob.h>

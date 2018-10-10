@@ -1,8 +1,8 @@
 #include "install_deps_phase_one.h"
 
-#include <adasworks/sx/algorithm.h>
-#include <adasworks/sx/check.h>
-#include <adasworks/sx/log.h>
+#include <nosx/algorithm.h>
+#include <nosx/check.h>
+#include <nosx/log.h>
 
 #include "clone.h"
 #include "cmakex_utils.h"
