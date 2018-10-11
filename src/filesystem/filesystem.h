@@ -106,6 +106,7 @@ public:
     file_type type() const { return t; }
     void type(file_type type) { t = type; }
     perms permissions() const { return p; }
+
 private:
     file_type t;
     perms p;
@@ -141,6 +142,6 @@ path canonical(const path& p, const path& base = current_path());
 path absolute(const path& p, const path& base = current_path());
 path lexically_normal(const path& p);
 bool equivalent(const path& x, const path& y);
-}
+}  // namespace filesystem
 
 #endif

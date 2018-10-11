@@ -5,9 +5,9 @@
 #include "cereal_utils.h"
 #include "filesystem.h"
 #include "misc_utils.h"
+#include "out_err_messages.h"
 #include "print.h"
 #include "resource.h"
-#include "out_err_messages.h"
 
 CEREAL_CLASS_VERSION(cmakex::cmakex_cache_t, 2)
 CEREAL_CLASS_VERSION(cmakex::cmake_cache_tracker_t, 2)
@@ -833,4 +833,4 @@ void test_cmake()
         }
     }
 }
-}
+}  // namespace cmakex

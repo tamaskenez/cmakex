@@ -99,7 +99,7 @@ string join(const vector<string>& v, const string& s)
     return r;
 }
 
-AW_NORETURN void throwf(const char* format, ...)
+NOSX_NORETURN void throwf(const char* format, ...)
 {
     va_list ap;
     va_start(ap, format);
@@ -108,7 +108,7 @@ AW_NORETURN void throwf(const char* format, ...)
     throw std::runtime_error(s);
 }
 
-AW_NORETURN void throwf_errno(const char* format, ...)
+NOSX_NORETURN void throwf_errno(const char* format, ...)
 {
     int was_errno = errno;
     va_list ap;
@@ -133,7 +133,7 @@ file_t must_fopen(string_par path, string_par mode)
 maybe<file_t> try_fopen(string_par path, string_par mode)
 {
     FILE* f = nowide::fopen(path.c_str(), mode.c_str());
-    return f ? just(file_t(f)) : nothing;
+    return f ? just(file_t(f)) : nullopt;
 }
 
 void must_fprintf(const file_t& f, const char* format, ...)
@@ -403,4 +403,4 @@ bool safe_fs_equivalent(string_par x, string_par y)
         return false;
     return fs::lexically_normal(xp).string() == fs::lexically_normal(yp).string();
 }
-}
+}  // namespace cmakex

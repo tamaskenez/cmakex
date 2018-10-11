@@ -15,14 +15,14 @@ extern bool g_verbose;
 extern bool g_log_git;
 extern bool g_supress_deps_cmake_logs;
 
-void log_info(const char* s, ...) AW_PRINTFLIKE(1, 2);
-void log_verbose(const char* s, ...) AW_PRINTFLIKE(1, 2);
+void log_info(const char* s, ...) NOSX_PRINTFLIKE(1, 2);
+void log_verbose(const char* s, ...) NOSX_PRINTFLIKE(1, 2);
 void log_info();
 void log_info_framed_message(string_par msg);
-void log_warn(const char* s, ...) AW_PRINTFLIKE(1, 2);
-void log_error(const char* s, ...) AW_PRINTFLIKE(1, 2);
-void log_error_errno(const char* s, ...) AW_PRINTFLIKE(1, 2);
-void log_fatal(const char* s, ...) AW_PRINTFLIKE(1, 2);
+void log_warn(const char* s, ...) NOSX_PRINTFLIKE(1, 2);
+void log_error(const char* s, ...) NOSX_PRINTFLIKE(1, 2);
+void log_error_errno(const char* s, ...) NOSX_PRINTFLIKE(1, 2);
+void log_fatal(const char* s, ...) NOSX_PRINTFLIKE(1, 2);
 
 string string_exec(string_par command,
                    const vector<string>& args,
@@ -42,6 +42,6 @@ void save_log_from_oem(string_par command_line,
 string current_datetime_string_for_log();
 // string datetime_string_for_log(std::chrono::system_clock::time_point x);
 void log_datetime();
-}
+}  // namespace cmakex
 
 #endif

@@ -26,6 +26,6 @@ build_result_t build(
     const cmakex_cache_t& cmakex_cache,
     vector<string> build_args,  // by value
     const vector<string>& native_tool_args);
-}
+}  // namespace cmakex
 
 #endif

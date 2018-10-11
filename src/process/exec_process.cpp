@@ -8,8 +8,8 @@
 #include <nosx/log.h>
 
 namespace cmakex {
-using Poco::Process;
 using Poco::Pipe;
+using Poco::Process;
 
 void pipereader(Pipe* pipe, exec_process_output_callback_t* callback)
 {
@@ -60,4 +60,4 @@ int exec_process(string_par path,
 
     return exit_code;
 }
-}
+}  // namespace cmakex

@@ -83,4 +83,4 @@ exec_process_output_callback_t OutErrMessagesBuilder::stderr_callback()
             exec_process_callbacks::print_to_stderr(x);
     };
 }
-}
+}  // namespace cmakex

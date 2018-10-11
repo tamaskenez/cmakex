@@ -101,7 +101,7 @@ tuple<idpo_recursion_result_t, bool> install_deps_phase_one(
     // successful run of the wrapper project
     string_par custom_deps_script_file  // if non-empty, it will be used instead of the default one
                                         // next to CMakeLists.txt
-    );
+);
 
 idpo_recursion_result_t run_deps_add_pkg(
     string_par args,
@@ -110,6 +110,6 @@ idpo_recursion_result_t run_deps_add_pkg(
     const vector<config_name_t>& configs,  // same constraints as for install_deps_phase_one
     deps_recursion_wsp_t& wsp,
     const cmakex_cache_t& cmakex_cache);
-}
+}  // namespace cmakex
 
 #endif

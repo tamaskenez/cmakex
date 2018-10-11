@@ -45,7 +45,7 @@ string to_string(pkg_request_status_against_installed_config_t x)
     switch (x) {
 #define A(X) \
     case X:  \
-        return AW_STRINGIZE(X)
+        return NOSX_STRINGIZE(X)
         A(invalid_status);
         A(pkg_request_satisfied);
         A(pkg_request_not_installed);
@@ -56,4 +56,4 @@ string to_string(pkg_request_status_against_installed_config_t x)
             return stringf("[invalid pkg_request_status_against_installed_config_t: %d]", (int)x);
     }
 }
-}
+}  // namespace cmakex

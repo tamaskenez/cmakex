@@ -7,7 +7,6 @@
 #include "cmakex_utils.h"
 #include "filesystem.h"
 #include "git.h"
-#include "git.h"
 #include "misc_utils.h"
 #include "print.h"
 
@@ -334,4 +333,4 @@ void clone_helper_t::update_clone_status_vars()
             CHECK(false);
     }
 }
-}
+}  // namespace cmakex

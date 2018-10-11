@@ -285,4 +285,4 @@ void log_datetime()
 {
     log_info("%s", current_datetime_string_for_log().c_str());
 }
-}
+}  // namespace cmakex

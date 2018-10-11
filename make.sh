@@ -11,7 +11,7 @@ else
     exit 1
 fi
 
-common_opts="-DCMAKE_CXX_STANDARD=11 -DCMAKE_DEBUG_POSTFIX=_d"
+common_opts="-DCMAKE_CXX_STANDARD=17 -DCMAKE_DEBUG_POSTFIX=_d"
 deps_install=$PWD/deps/o
 
 eval cmakex_cmake_args=(${CMAKEX_CMAKE_ARGS})

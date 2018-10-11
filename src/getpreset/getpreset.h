@@ -18,6 +18,6 @@ using nosx::string_par;
 std::tuple<std::vector<std::string>, std::string, std::vector<std::string>> getpreset(
     string_par path_name,
     string_par field);
-}
+}  // namespace libgetpreset
 
 #endif

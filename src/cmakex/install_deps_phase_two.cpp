@@ -36,9 +36,10 @@ void install_deps_phase_two(string_par binary_dir,
     auto prefix_paths = stable_unique(concat(cfg.cmakex_cache().cmakex_prefix_path_vector,
                                              cfg.cmakex_cache().env_cmakex_prefix_path_vector));
 
-    auto create_desc = [&installdb, &prefix_paths](
-        const string& p, config_name_t config, const deps_recursion_wsp_t::pkg_t& wp,
-        const vector<string>& hijack_modules_needed, const string& cloned_sha) {
+    auto create_desc = [&installdb, &prefix_paths](const string& p, config_name_t config,
+                                                   const deps_recursion_wsp_t::pkg_t& wp,
+                                                   const vector<string>& hijack_modules_needed,
+                                                   const string& cloned_sha) {
         installed_config_desc_t desc(p, config);
         desc.git_url = wp.request.c.git_url;
         if (cloned_sha == k_sha_uncommitted) {
@@ -169,4 +170,4 @@ void install_deps_phase_two(string_par binary_dir,
         }
     }
 }
-}
+}  // namespace cmakex

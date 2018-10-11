@@ -52,7 +52,7 @@ private:
     cmakex_cache_t cmakex_cache_;
 };
 
-AW_NORETURN void badpars_exit(string_par msg);
+NOSX_NORETURN void badpars_exit(string_par msg);
 
 // source dir is a directory containing CMakeLists.txt
 bool evaluate_source_dir(string_par x, bool allow_invalid = false);
@@ -130,6 +130,6 @@ string escape_command_line_arg(string_par x);
 bool eval_cmake_boolean_or_fail(string_par x);
 
 void test_cmake();
-}
+}  // namespace cmakex
 
 #endif

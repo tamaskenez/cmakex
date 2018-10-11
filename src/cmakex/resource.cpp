@@ -318,4 +318,4 @@ else()
   message(STATUS "No command specified.")
 endif()
 )~~~~";
-}
+}  // namespace cmakex

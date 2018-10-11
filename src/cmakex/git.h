@@ -95,6 +95,6 @@ struct ls_remote_result_t
 ls_remote_result_t git_ls_remote(string_par url);
 string git_current_branch_or_HEAD(string_par clone_dir);
 bool git_is_existing_commit(string_par clone_dir, string_par ref);
-}
+}  // namespace cmakex
 
 #endif

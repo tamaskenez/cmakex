@@ -2,18 +2,20 @@
 #define EXEC_PROCESS_0394723
 
 #include <functional>
+#include <string_view>
+#include <vector>
 
-#include <nosx/array_view.h>
 #include <nosx/mutex.h>
 #include <nosx/string_par.h>
 
 namespace cmakex {
 
 using nosx::atomic_flag_mutex;
-using nosx::array_view;
 using nosx::string_par;
-using std::vector;
 using std::string;
+using std::vector;
+template <class T>
+using array_view = std::basic_string_view<T>;
 
 using exec_process_output_callback_t = std::function<void(array_view<const char>)>;
 

@@ -51,6 +51,6 @@ void load_json_input_archive(string_par path, T& out)
         throwf("Can't read %s, unknown exception.", path_for_log(path).c_str());
     }
 }
-}
+}  // namespace cmakex
 
 #endif

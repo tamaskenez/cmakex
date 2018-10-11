@@ -1216,4 +1216,4 @@ idpo_recursion_result_t run_deps_add_pkg(string_par pkg_name,
     rr.add_pkg(pkg_name);
     return rr;
 }
-}
+}  // namespace cmakex

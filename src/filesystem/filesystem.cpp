@@ -34,10 +34,10 @@
 
 namespace filesystem {
 
-using nosx::stringf;
 using nosx::string_par;
-using std::string;
+using nosx::stringf;
 using std::exception;
+using std::string;
 
 namespace {
 #ifdef _WIN32
@@ -218,9 +218,9 @@ HANDLE create_file_handle(const path& p,
                          hTemplateFile);
 }
 
-//  REPARSE_DATA_BUFFER related definitions are found in ntifs.h, which is part of the
-//  Windows Device Driver Kit. Since that's inconvenient, the definitions are provided
-//  here. See http://msdn.microsoft.com/en-us/library/ms791514.aspx
+    //  REPARSE_DATA_BUFFER related definitions are found in ntifs.h, which is part of the
+    //  Windows Device Driver Kit. Since that's inconvenient, the definitions are provided
+    //  here. See http://msdn.microsoft.com/en-us/library/ms791514.aspx
 
 #if !defined(REPARSE_DATA_BUFFER_HEADER_SIZE)  // mingw winnt.h does provide the defs
 
@@ -304,9 +304,8 @@ bool is_reparse_point_a_symlink(const path& p)
            // Directory junctions are very similar to symlinks, but have some performance
            // and other advantages over symlinks. They can be created from the command line
            // with "mklink /j junction-name target-path".
-           ||
-           reinterpret_cast<const REPARSE_DATA_BUFFER*>(buf.get())->ReparseTag ==
-               IO_REPARSE_TAG_MOUNT_POINT;  // aka "directory junction" or "junction"
+           || reinterpret_cast<const REPARSE_DATA_BUFFER*>(buf.get())->ReparseTag ==
+                  IO_REPARSE_TAG_MOUNT_POINT;  // aka "directory junction" or "junction"
 }
 #else
 bool not_found_error(int /*errval*/)
@@ -322,14 +321,14 @@ file_status status(const path& p, std::error_code* ec)
 
     struct stat path_stat;
     if (::stat(p.c_str(), &path_stat) != 0) {
-        if (ec != 0)                                    // always report errno, even though some
+        if (ec != nullptr)                              // always report errno, even though some
             ec->assign(errno, std::system_category());  // errno values are not status_errors
 
         if (not_found_error(errno))
             return file_status(file_type::not_found, perms::none);
         if (errno == EACCES)
             return file_status(file_type::unknown, perms::none);
-        if (ec == 0)
+        if (ec == nullptr)
             throw_filesystem_error_from_errno_code(
                 errno, stringf("Can't get file status for %s", p.c_str()), &p);
         return file_status(file_type::none);
@@ -613,7 +612,8 @@ bool equivalent(const path& p1, const path& p2)
     }
 
     // both stats now known to be valid
-    return s1.st_dev == s2.st_dev && s1.st_ino == s2.st_ino
+    return s1.st_dev == s2.st_dev &&
+           s1.st_ino == s2.st_ino
            // According to the POSIX stat specs, "The st_ino and st_dev fields
            // taken together uniquely identify the file within the system."
            // Just to be sure, size and mod time are also checked.
@@ -674,4 +674,4 @@ bool equivalent(const path& p1, const path& p2)
 
 #endif
 }
-}
+}  // namespace filesystem

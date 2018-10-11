@@ -90,6 +90,7 @@ struct file_t
     }
     FILE* stream() const { return f; }
     const string& path() const { return path_; }
+
 private:
     string path_;
     FILE* f = nullptr;
@@ -102,8 +103,8 @@ inline void swap(file_t& x, file_t& y)
 
 file_t must_fopen(string_par path, string_par mode);
 maybe<file_t> try_fopen(string_par path, string_par mode);
-void must_fprintf(const file_t& f, const char* format, ...) AW_PRINTFLIKE(2, 3);
-int fprintf(const file_t& f, const char* format, ...) AW_PRINTFLIKE(2, 3);
+void must_fprintf(const file_t& f, const char* format, ...) NOSX_PRINTFLIKE(2, 3);
+int fprintf(const file_t& f, const char* format, ...) NOSX_PRINTFLIKE(2, 3);
 inline int ferror(const file_t& f)
 {
     return ::ferror(f.stream());
@@ -126,10 +127,10 @@ inline bool feof(const file_t& f)
 }
 
 // throws std::runtime_error with formatted message
-AW_NORETURN void throwf(const char* format, ...) AW_PRINTFLIKE(1, 2);
+NOSX_NORETURN void throwf(const char* format, ...) NOSX_PRINTFLIKE(1, 2);
 
 // throws std::runtime_error with formatted message, errno message appended if nonzero
-AW_NORETURN void throwf_errno(const char* format, ...) AW_PRINTFLIKE(1, 2);
+NOSX_NORETURN void throwf_errno(const char* format, ...) NOSX_PRINTFLIKE(1, 2);
 
 string strip_trailing_whitespace(string_par x);
 
@@ -277,6 +278,6 @@ vector<string> split_at_newlines(string text);
 
 // call fs::equivalent on existing paths, normalizes and string-compares otherwise
 bool safe_fs_equivalent(string_par x, string_par y);
-}
+}  // namespace cmakex
 
 #endif

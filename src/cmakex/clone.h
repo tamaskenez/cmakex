@@ -60,6 +60,6 @@ private:
     const string binary_dir;
     const string pkg_name;
 };
-}
+}  // namespace cmakex
 
 #endif

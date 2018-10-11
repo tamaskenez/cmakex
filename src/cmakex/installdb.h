@@ -68,6 +68,6 @@ private:
 };
 
 string calc_sha(const installed_config_desc_t& x);
-}
+}  // namespace cmakex
 
 #endif

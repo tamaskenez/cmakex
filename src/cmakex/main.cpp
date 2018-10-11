@@ -2,8 +2,8 @@
 
 #include <cmath>
 
-#include <nowide/cstdlib.hpp>
 #include <nowide/cstdio.hpp>
+#include <nowide/cstdlib.hpp>
 
 #include <Poco/Util/Application.h>
 
@@ -19,7 +19,6 @@
 #include "print.h"
 #include "process_command_line.h"
 #include "run_cmake_steps.h"
-#include "cmakex_utils.h"
 
 namespace cmakex {
 
@@ -374,7 +373,7 @@ int main(int argc, char* argv[])
 
     return result;
 }
-}
+}  // namespace cmakex
 
 int main(int argc, char* argv[])
 {

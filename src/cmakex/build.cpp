@@ -334,7 +334,7 @@ build_result_t build(string_par binary_dir,
                  config.get_prefer_NoConfig().c_str());
 
     std::sort(BEGINEND(build_result.hijack_modules_needed));
-    sx::unique_trunc(build_result.hijack_modules_needed);
+    nosx::unique_trunc(build_result.hijack_modules_needed);
     return build_result;
 }
-}
+}  // namespace cmakex

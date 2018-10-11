@@ -26,6 +26,6 @@ private:
     const string build_script_add_pkg_out_file;
     const string build_script_cmakex_out_file;
 };
-}
+}  // namespace cmakex
 
 #endif

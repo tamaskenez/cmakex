@@ -52,6 +52,7 @@ struct config_name_t
     bool operator==(const config_name_t& x) const { return value == x.value; }
     bool operator<(const config_name_t& x) const { return value < x.value; }
     bool is_noconfig() const { return value.empty(); }
+
 private:
     void normalize();
 
@@ -312,6 +313,6 @@ struct cmake_cache_t
     std::map<string, string> vars;
     std::map<string, string> types;
 };
-}
+}  // namespace cmakex
 
 #endif

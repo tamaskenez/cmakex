@@ -13,6 +13,6 @@ void install_deps_phase_two(string_par binary_dir,
                             bool force_config_step,
                             const vector<string>& build_args,
                             const vector<string>& native_tool_args);
-}
+}  // namespace cmakex
 
 #endif

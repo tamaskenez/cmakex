@@ -196,4 +196,4 @@ vector<string> HelperCmakeProject::run_deps_script(string_par deps_script_file,
     // read the add_pkg_out
     return must_read_file_as_lines(build_script_add_pkg_out_file);
 }
-}
+}  // namespace cmakex

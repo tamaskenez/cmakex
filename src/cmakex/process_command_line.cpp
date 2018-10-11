@@ -804,4 +804,4 @@ tuple<processed_command_line_args_cmake_mode_t, cmakex_cache_t> process_command_
 
     return make_tuple(move(pcla), move(cmakex_cache));
 }
-}
+}  // namespace cmakex

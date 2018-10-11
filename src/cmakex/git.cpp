@@ -7,10 +7,10 @@
 #include <nosx/check.h>
 #include <nosx/mutex.h>
 
+#include "cmakex_utils.h"
 #include "filesystem.h"
 #include "misc_utils.h"
 #include "print.h"
-#include "cmakex_utils.h"
 
 namespace cmakex {
 using nosx::atomic_flag_mutex;
@@ -20,7 +20,7 @@ namespace fs = filesystem;
 namespace {
 atomic_flag_mutex s_git_executable_mutex;
 string s_git_executable;
-}
+}  // namespace
 
 string find_git_with_cmake()
 {
@@ -430,4 +430,4 @@ string git_current_branch_or_HEAD(string_par clone_dir)
     }
     return s;
 }
-}
+}  // namespace cmakex

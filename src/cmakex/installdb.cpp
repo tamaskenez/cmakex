@@ -96,7 +96,7 @@ string dbpath_from_prefix_path(string_par prefix_path)
 {
     return prefix_path.str() + "/_cmakex/installdb";
 }
-}
+}  // namespace
 
 InstallDB::InstallDB(string_par binary_dir)
     : binary_dir(binary_dir.str()),
@@ -201,9 +201,10 @@ vector<string> InstallDB::glob_installed_pkg_config_descs(string_par pkg_name,
 
 string InstallDB::installed_pkg_desc_dir(string_par pkg_name, string_par prefix_path) const
 {
-    return stringf("%s/%s", prefix_path.empty() ? dbpath.c_str()
-                                                : dbpath_from_prefix_path(prefix_path).c_str(),
-                   pkg_name.c_str());
+    return stringf(
+        "%s/%s",
+        prefix_path.empty() ? dbpath.c_str() : dbpath_from_prefix_path(prefix_path).c_str(),
+        pkg_name.c_str());
 }
 
 string InstallDB::installed_pkg_config_desc_path(string_par pkg_name,
@@ -383,7 +384,7 @@ void remove_and_log_error(string_par f)
         log_error("Failed to remove %s, reason is unknown.", path_for_log(f).c_str());
     }
 }
-}
+}  // namespace
 
 void InstallDB::uninstall_config_if_installed(string_par pkg_name, const config_name_t& config)
 {
@@ -440,4 +441,4 @@ tuple<string, vector<config_name_t>> InstallDB::quick_check_on_prefix_paths(
     }
     return result;
 }
-}
+}  // namespace cmakex

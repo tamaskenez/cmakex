@@ -46,7 +46,7 @@ struct out_err_message_internal_t : public out_err_message_base_t
     time_point t;
     ptrdiff_t msg_begin, msg_end;
 };
-}
+}  // namespace internal
 
 struct out_err_message_t : public out_err_message_base_t
 {
@@ -146,5 +146,5 @@ private:
     internal::out_err_message_internal_t* last_unfinished_stdout_message = nullptr;
     internal::out_err_message_internal_t* last_unfinished_stderr_message = nullptr;
 };
-}
+}  // namespace cmakex
 #endif

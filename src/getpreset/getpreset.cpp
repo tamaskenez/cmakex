@@ -20,14 +20,13 @@
 #include "filesystem.h"
 #include "misc_utils.h"
 
-using namespace adasworks;
 namespace fs = filesystem;
 
-using std::string;
-using sx::string_par;
-using std::vector;
+using nosx::string_par;
+using nosx::stringf;
 using std::map;
-using sx::stringf;
+using std::string;
+using std::vector;
 using namespace cmakex;
 
 #ifndef LIBGETPRESET
@@ -413,7 +412,7 @@ tuple<vector<string>, string, vector<string>> getpreset(string_par path_name, st
 
     return std::make_tuple(std::move(result), std::move(file), std::move(lookup_names));
 }
-}
+}  // namespace libgetpreset
 
 #ifndef LIBGETPRESET
 int main(int argc, char* argv[])

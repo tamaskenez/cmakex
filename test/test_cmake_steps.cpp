@@ -12,8 +12,8 @@
 
 using std::string;
 namespace fs = filesystem;
-using std::vector;
 using nosx::stringf;
+using std::vector;
 
 void dump_oem(const cmakex::OutErrMessages& oem)
 {
@@ -28,6 +28,7 @@ void dump_oem(const cmakex::OutErrMessages& oem)
             case cmakex::out_err_message_t::source_stderr:
                 src = "stderr";
                 break;
+            case cmakex::out_err_message_t::source_invalid:
             default:
                 src = stringf("invalid (%d)", (int)msg.source);
         }
@@ -47,8 +48,6 @@ void dump_oem(const cmakex::OutErrMessages& oem)
 int main(int argc, char* argv[])
 {
     try {
-        adasworks::log::Logger global_logger(adasworks::log::global_tag, AW_TRACE);
-
         CHECK(argc == 4);
 
         string cmakex_path = argv[1];
