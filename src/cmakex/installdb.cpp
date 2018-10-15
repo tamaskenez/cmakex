@@ -39,14 +39,16 @@ void save(Archive& archive, const config_name_t& x)
 template <class Archive>
 void serialize(Archive& archive, pkg_clone_pars_t& m, uint32_t version)
 {
-    THROW_UNLESS(version == 1);
+    if (!(version == 1))
+        throw std::runtime_error("pkg_clone_pars version should be 1.");
     archive(A(git_url), A(git_tag));
 }
 
 template <class Archive>
 void serialize(Archive& archive, pkg_desc_t& m, uint32_t version)
 {
-    THROW_UNLESS(version == 1);
+    if (!(version == 1))
+        throw std::runtime_error("pkg_desc version should be 1.");
     archive(A(name), A(c), A(b), A(depends));
 }
 
@@ -74,7 +76,8 @@ void serialize(Archive& archive, final_cmake_args_t& m)
 template <class Archive>
 void serialize(Archive& archive, installed_config_desc_t& m, uint32_t version)
 {
-    THROW_UNLESS(version == 2 || version == 3);
+    if (!(version == 2 || version == 3))
+        throw std::runtime_error("installed_config_desc version should be 2 or 3.");
     archive(A(pkg_name), A(config), A(git_url), A(git_sha), A(source_dir), A(final_cmake_args),
             A(deps_shas));
     if (version == 3)

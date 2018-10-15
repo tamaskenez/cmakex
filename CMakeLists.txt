@@ -15,11 +15,13 @@ if(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
         -Wno-shadow -Wno-cast-align
         -Wno-conversion -Wno-double-promotion
         -Wno-covered-switch-default
+        -Wno-gnu-zero-variadic-macro-arguments
         ${common_gcc_clang}
         )
 elseif(CMAKE_COMPILER_IS_GNUCXX)
     add_compile_options(-Wall -Wextra -Wnon-virtual-dtor -pedantic
         -Wunused -Woverloaded-virtual
+        -Wno-gnu-zero-variadic-macro-arguments
         ${common_gcc_clang})
 elseif(MSVC)
     add_compile_options(/W4 /W44640 /w14242 /w14254 /w14263 /w14265 /w14287

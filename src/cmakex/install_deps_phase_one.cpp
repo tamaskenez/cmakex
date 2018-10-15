@@ -28,7 +28,7 @@ void idpo_recursion_result_t::add(const idpo_recursion_result_t& x)
 void idpo_recursion_result_t::normalize()
 {
     std::sort(BEGINEND(pkgs_encountered));
-    sx::unique_trunc(pkgs_encountered);
+    nosx::unique_trunc(pkgs_encountered);
 }
 
 void idpo_recursion_result_t::add_pkg(string_par x)
@@ -459,7 +459,7 @@ idpo_recursion_result_t run_deps_add_pkg(string_par pkg_name,
 
         // overwrite requested configs with the installed ones
         std::sort(BEGINEND(requested_configs));
-        sx::unique_trunc(requested_configs);
+        nosx::unique_trunc(requested_configs);
         std::sort(BEGINEND(configs_on_prefix_path));
 
         auto missing_configs = set_difference(requested_configs, configs_on_prefix_path);
@@ -681,8 +681,9 @@ idpo_recursion_result_t run_deps_add_pkg(string_par pkg_name,
                             LOG_WARN("%s: abandoning local changes in index or workspace.",
                                      pkg_for_log(pkg_name).c_str());
                             git_checkout({"-f", target_git_branch}, clone_dir);
-                        } else
+                        } else {
                             git_checkout({target_git_branch}, clone_dir);
+                        }
                 } else {
                     // create new local branch
                     string sw;
@@ -1033,7 +1034,7 @@ idpo_recursion_result_t run_deps_add_pkg(string_par pkg_name,
                     auto deps =
                         concat(keys_of_map(current_install_desc.deps_shas), pkg.request.depends);
                     std::sort(BEGINEND(deps));
-                    sx::unique_trunc(deps);
+                    nosx::unique_trunc(deps);
 
                     for (auto& d : deps) {
                         // we can stop at first reason to build
@@ -1116,7 +1117,7 @@ idpo_recursion_result_t run_deps_add_pkg(string_par pkg_name,
                             vector<config_name_t> configs =
                                 concat(keys_of_map(map1), keys_of_map(map2));
                             std::sort(BEGINEND(configs));
-                            sx::unique_trunc(configs);
+                            nosx::unique_trunc(configs);
                             config_name_t* changed_config = nullptr;
                             for (auto& c : configs) {
                                 auto it1 = map1.find(c);
@@ -1201,7 +1202,7 @@ idpo_recursion_result_t run_deps_add_pkg(string_par pkg_name,
         for (auto kv : installed_result)
             append_inplace(v, kv.second.installed_config_desc.hijack_modules_needed);
         std::sort(BEGINEND(v));
-        sx::unique_trunc(v);
+        nosx::unique_trunc(v);
         for (auto& x : v)
             write_hijack_module(x, binary_dir);
     } else {

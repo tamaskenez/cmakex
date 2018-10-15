@@ -13,7 +13,6 @@
 namespace cmakex {
 
 namespace fs = filesystem;
-namespace sx = adasworks::sx;
 
 void run_cmake_steps(const processed_command_line_args_cmake_mode_t& pars,
                      const cmakex_cache_t& cmakex_cache)
@@ -41,7 +40,8 @@ void run_cmake_steps(const processed_command_line_args_cmake_mode_t& pars,
             force_config_step_now = false;
 
     }  // for configs
-    log_info("Finished at %s, elapsed %s", current_datetime_string_for_log().c_str(),
-             sx::format_duration(dur_sec(high_resolution_clock::now() - main_tic).count()).c_str());
+    log_info(
+        "Finished at %s, elapsed %s", current_datetime_string_for_log().c_str(),
+        nosx::format_duration(dur_sec(high_resolution_clock::now() - main_tic).count()).c_str());
 }
 }  // namespace cmakex

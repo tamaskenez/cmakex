@@ -168,7 +168,7 @@ Miscellaneous
               dependencies and also information about the command line and the
               main project. It's advised to use the `.cmake` extenstion so it
               can be given to the `--deps=` argument later.
-              
+
     -q        Quiet logging of cmake operations on dependencies. The stdout and
               stderr from cmake will only be saved to disk but not forwarded to
               stdout, except if the command fails.
@@ -214,10 +214,10 @@ Configure new project, `Debug` config, use a preset:
 Build `Release` config in existing build dir, with dependencies
 
     cmakex br my-build-dir --deps
-    
+
 )~~~~";
 
-AW_NORETURN void display_usage_and_exit(int exit_code, bool brief)
+NOSX_NORETURN void display_usage_and_exit(int exit_code, bool brief)
 {
     auto s = stringf("cmakex v%s", cmakex_version_with_meta);
     fprintf(exit_code ? stderr : stdout, "%s ", s.c_str());
@@ -225,7 +225,7 @@ AW_NORETURN void display_usage_and_exit(int exit_code, bool brief)
     exit(exit_code);
 }
 
-AW_NORETURN void display_version_and_exit(int exit_code)
+NOSX_NORETURN void display_version_and_exit(int exit_code)
 {
     fprintf(exit_code ? stderr : stdout, "%s\n", cmakex_version_with_meta);
     exit(exit_code);
@@ -672,10 +672,11 @@ tuple<processed_command_line_args_cmake_mode_t, cmakex_cache_t> process_command_
         check_cmake_cache();
         if (binary_dir_has_cmake_cache) {
             cmake_generator = cmake_cache.vars["CMAKE_GENERATOR"];
-            THROW_IF(
-                cmake_generator.empty(),
-                "The file %s/CMakeCache.txt contains invalid (empty) CMAKE_GENERATOR variable.",
-                pcla.binary_dir.c_str());
+            if (cmake_generator.empty()) {
+                throw std::runtime_error(stringf(
+                    "The file %s/CMakeCache.txt contains invalid (empty) CMAKE_GENERATOR variable.",
+                    pcla.binary_dir.c_str()));
+            }
         } else {
             // new binary dir
             cmake_generator = extract_generator_from_cmake_args(pcla.cmake_args);

@@ -1,4 +1,7 @@
+#include "nosx/check.h"
 #include "nosx/stringf.h"
+
+#include <cmath>
 
 #ifndef _MSC_VER
 #define NOSX_VSNPRINTF vsnprintf
@@ -36,6 +39,26 @@ std::string vstringf(const char* fmt, va_list args)
         return buf;
     else
         return "<ERROR calling vsnprintf>";
+}
+
+std::string format_duration(double seconds)
+{
+    const char* sign = seconds < 0 ? "-" : "";
+    unsigned seconds_int = (unsigned)round(fabs(seconds));
+    unsigned h = seconds_int / 3600;
+    seconds_int -= h * 3600;
+    unsigned m = seconds_int / 60;
+    seconds_int -= m * 60;
+    unsigned s = seconds_int;
+    CHECK(0 <= s && s < 60);
+    char buf[256];
+    if (h == 0 && m == 0)
+        sprintf(buf, "%fs", seconds);
+    else if (h == 0)
+        sprintf(buf, "%s%u'%02u\"", sign, m, s);
+    else
+        sprintf(buf, "%s%u:%02u:%02u", sign, h, m, s);
+    return buf;
 }
 
 }  // namespace nosx

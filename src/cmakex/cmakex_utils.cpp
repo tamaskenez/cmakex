@@ -21,7 +21,8 @@ namespace fs = filesystem;
 template <class Archive>
 void serialize(Archive& archive, cmakex_cache_t& m, uint32_t version)
 {
-    THROW_UNLESS(version == 1 || version == 2);
+    if (!(version == 1 || version == 2))
+        throw std::runtime_error("cmake_cache version should be 1 or 2");
     archive(A(valid), A(home_directory), A(multiconfig_generator), A(per_config_bin_dirs),
             A(cmakex_prefix_path_vector), A(env_cmakex_prefix_path_vector), A(cmake_root));
     if (version == 2)
@@ -31,7 +32,8 @@ void serialize(Archive& archive, cmakex_cache_t& m, uint32_t version)
 template <class Archive>
 void serialize(Archive& archive, cmake_cache_tracker_t& m, uint32_t version)
 {
-    THROW_UNLESS(version == 2);
+    if (!(version == 2))
+        throw std::runtime_error("cmake_cache_tracker version should be 2");
     archive(A(pending_cmake_args), A(cached_cmake_args), A(c_sha), A(cmake_toolchain_file_sha));
 }
 
@@ -354,8 +356,9 @@ string extract_generator_from_cmake_args(const vector<string>& cmake_args)
     }
     if (cmake_generators.empty())
         return {};
-    THROW_IF(cmake_generators.size() > 1, "Multiple CMake-generators specified: %s",
-             join(cmake_generators, ", ").c_str());
+    if (cmake_generators.size() > 1)
+        throw std::runtime_error(stringf("Multiple CMake-generators specified: %s",
+                                         join(cmake_generators, ", ").c_str()));
     return cmake_generators.front();
 }
 
@@ -487,7 +490,8 @@ vector<string> normalize_cmake_args(const vector<string>& x)
         y.emplace_back(*it);
         if (it->size() == 2 && is_one_of(*it, {"-C", "-D", "-U", "-G", "-T", "-A"})) {
             ++it;
-            THROW_IF(it == x.end(), "Missing argument after '%s'", y.back().c_str());
+            if (it == x.end())
+                throw std::runtime_error(stringf("Missing argument after '%s'", y.back().c_str()));
             y.back() += *it;
         }
     }
@@ -578,7 +582,7 @@ vector<string> normalize_cmake_args(const vector<string>& x)
     for (auto& kv : varname_to_last_arg)
         z.emplace_back(kv.second);
     std::sort(BEGINEND(z));
-    sx::unique_trunc(z);
+    nosx::unique_trunc(z);
     return z;
 }
 

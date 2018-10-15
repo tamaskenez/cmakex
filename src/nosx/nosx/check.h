@@ -2,4 +2,4 @@
 
 #include <cassert>
 
-#define CHECK(x, ...) assert(x&&##__VA_ARGS__)
+#define CHECK(x, ...) assert(x)

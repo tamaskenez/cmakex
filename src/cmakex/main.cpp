@@ -42,7 +42,6 @@ int main(int argc, char* argv[])
 {
     nowide::args nwa(argc, argv);
 
-    log::Logger global_logger(adasworks::log::global_tag);
     LOG_DEBUG("Debug log messages are enabled");
     LOG_TRACE("Trace log messages are enabled");
 
@@ -57,7 +56,7 @@ int main(int argc, char* argv[])
         auto dpf = exe_path + "/" + default_cmakex_preset_filename();
         auto env_cpf = nowide::getenv("CMAKEX_PRESET_FILE");
         if (env_cpf && strlen(env_cpf) == 0)
-            env_cpf = 0;
+            env_cpf = nullptr;
         auto dpf_exists = fs::is_regular_file(dpf);
         auto cpf_exists = env_cpf && fs::is_regular_file(env_cpf);
 
